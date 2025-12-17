@@ -10,15 +10,9 @@ const userRouter = require("./routes/userRoutes")
 const app = express();
 dotenv.config({})
 const options = {
-    origin: (origin, callback) => {
-        const allowedOrigins = [process.env.BASE_URL];
-        if (!origin || allowedOrigins.indexOf(origin) !== -1 || !process.env.BASE_URL) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
-    credentials: true
+    origin: true,
+    credentials: true,
+    optionsSuccessStatus: 200
 }
 
 app.use(express.json());
